@@ -10,7 +10,7 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/health');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/health`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }

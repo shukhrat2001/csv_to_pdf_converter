@@ -56,7 +56,7 @@ convertBtn.addEventListener('click', async () => {
   formData.append("file", selectedFile)
 
   try {
-    const response = await fetch('/api/convert', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/convert`, {
       method: 'POST',
       body: formData
     })
