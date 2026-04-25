@@ -43,6 +43,7 @@ fileInput.addEventListener('change', () => {
     selectedFile = fileInput.files[0]
     fileInfo.innerHTML = `✅ Selected file: <strong>${selectedFile.name}</strong>`
     convertBtn.disabled = false
+    result.innerHTML = '' // ← add this line
   }
 })
 
