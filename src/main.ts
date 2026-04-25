@@ -35,6 +35,8 @@ const result = document.querySelector<HTMLDivElement>('#result')!
 let selectedFile: File | null = null
 
 uploadBtn.addEventListener('click', () => {
+  fileInput.value = ''  // reset so change always fires
+  result.innerHTML = '' // clear result on new upload
   fileInput.click()
 })
 
@@ -43,13 +45,14 @@ fileInput.addEventListener('change', () => {
     selectedFile = fileInput.files[0]
     fileInfo.innerHTML = `✅ Selected file: <strong>${selectedFile.name}</strong>`
     convertBtn.disabled = false
-    result.innerHTML = '' // ← add this line
+    result.innerHTML = '' // clear result on new file selected
   }
 })
 
 convertBtn.addEventListener('click', async () => {
   if (!selectedFile) return
 
+  result.innerHTML = ''  // clear result on every convert attempt
   convertBtn.textContent = "Converting..."
   convertBtn.disabled = true
 
